@@ -11,7 +11,7 @@ def gradient_descent(f, x0, obj_tol, param_tol, max_iter, grad_f):
         direction = -gradient
         alpha = 1.0
         beta = 0.8
-        while f(x + alpha*direction) > f(x) + 1e-4 * alpha * np.dot(direction,direction):
+        while f(x + alpha*direction) > f(x) + 1e-4 * alpha * np.dot(direction,gradient):
             alpha *= beta
         
         x += alpha * direction
@@ -37,7 +37,7 @@ def newton_method(f, x0, obj_tol, param_tol, max_iter, grad_f, hess_f):
 
         alpha = 1.0
         beta = 0.8
-        while f(x + alpha*direction) > f(x) + 1e-4 * alpha * np.dot(direction,direction):
+        while f(x + alpha*direction) > f(x) + 1e-4 * alpha * np.dot(direction,gradient):
             alpha *= beta
 
         x += alpha * direction
